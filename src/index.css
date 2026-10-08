@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 89% 2%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 60% 6%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 60% 6%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 222 84% 30%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 222 60% 12%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 30% 15%;
+    --muted-foreground: 215 25% 68%;
+
+    --accent: 330 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 20% 15%;
+    --input: 220 20% 15%;
+    --ring: 330 100% 50%;
+
+    --radius: 1rem;
+
+    --spiritual: 270 100% 50%;
+
+    --sidebar-background: 222 60% 6%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 222 84% 30%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 222 60% 12%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 220 20% 15%;
+    --sidebar-ring: 330 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Outfit', system-ui, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+  }
+
+  .font-body {
+    font-family: 'Outfit', system-ui, sans-serif;
+  }
+
+  .glass-card {
+    backdrop-filter: blur(24px) saturate(180%);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-card-strong {
+    backdrop-filter: blur(24px) saturate(180%);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0.04) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .brand-gradient {
+    background: linear-gradient(135deg, hsl(330 100% 50%) 0%, hsl(270 100% 50%) 100%);
+  }
+
+  .brand-gradient-text {
+    background: linear-gradient(135deg, hsl(330 100% 50%) 0%, hsl(270 100% 50%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-text-gradient {
+    background: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(0 0% 100% / 0.5) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .aura-bg {
+    background: radial-gradient(circle at 50% -20%, hsl(222 84% 30%) 0%, transparent 70%);
+  }
+
+  .player-glow {
+    box-shadow: 0 0 60px -10px hsl(330 100% 50% / 0.4);
+  }
+
+  .accent-glow {
+    box-shadow: 0 0 40px -5px hsl(330 100% 50% / 0.3);
+  }
+
+  .card-depth {
+    box-shadow: 0 20px 40px -10px hsl(330 100% 50% / 0.15);
+  }
+
+  .wave-divider {
+    position: relative;
+  }
+
+  .wave-divider::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80'%3E%3Cpath fill='%23020816' d='M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,0 L0,0 Z'/%3E%3C/svg%3E") no-repeat;
+    background-size: cover;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(330 100% 50% / 0.4), 0 0 40px hsl(330 100% 50% / 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px hsl(330 100% 50% / 0.6), 0 0 60px hsl(330 100% 50% / 0.3);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+a[href*="lovable.dev"],
+iframe[src*="lovable.dev"],
+div[style*="Edit with Lovable"],
+.lovable-badge {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  z-index: -9999 !important;
+}
